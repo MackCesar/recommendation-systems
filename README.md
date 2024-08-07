@@ -1,4 +1,4 @@
-# recommendation-systems
+# Recommendation Systems
 
 This repository contains two separate implementations of a recommendation system: one in Python and another in Go. Both systems use a dataset of video game reviews to recommend similar items based on user co-occurrence. The project includes RESTful APIs that allow users to request recommendations for specific items (ASINs).
 
@@ -57,7 +57,25 @@ The data can be downloaded from the [UCSD Amazon Product Review Dataset](https:/
 
 ### Python Implementation
 
-**Python Code will be added later**
+#### Prerequistes
++ **Python 3.6:** Ensure you have Python installed on your system.
++ **Docker:** Docker is used to containerize the application.
+#### Installation
+1. **Navigate to the Python Directory**
+```bash
+cd recommendation-systems/python-recommender 
+```
+2. **Build the Docker Image**
+Use Docker to build the Python application image:
+```bash
+docker build -t python-recommender .
+```
+3. **Run the Docker Container**
+To run the Python application using Docker:
+```bash
+docker run -p 5000:5000 python-recommender
+```
+The application will start and listen for HTTP requests on port 5000.
 
 ### Go Implementation
 ### Prerequistes
@@ -65,7 +83,7 @@ The data can be downloaded from the [UCSD Amazon Product Review Dataset](https:/
 + **Go 1.18+:** Make sure you have Go installed on your system. You can download it from the official Go website.
 + **Docker:** Docker is used to containerize the application. You can install Docker from the official Docker website.
 
-###Installation
+### Installation
 
 1. **Navigate to the Go Directory**
 ```bash
@@ -88,10 +106,19 @@ docker run -p 8080:8080 go-recommender
 The application will start and listen for HTTP requests on port 8080.
 
 ### Usage
-#### Python API
-##### Python Endpoint
-**Python code will be added later**
-#### Go API
+### Python API
+##### Python API Endpoint
+The recommendation API endpoint is accessible at:
+```bash
+GET /recommend/{asin}
+```
+Replace {asin} with the actual ASIN of the product you want recommendations for.
+**Response**
+```json
+{"recommendations": ["B00005N5PF", "B00002E328", "B00004U5VK", "B00005N5PM", "B00004YKZT"]}
+```
+
+### Go API
 #### Go API Endpoint
 The recommendation API endpoint is accessible at:
 
